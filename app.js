@@ -4,9 +4,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var methodOverride = require("method-override");
 
-mongoose.connect(
-  "mongodb+srv://admin:123@cluster0.scavp.azure.mongodb.net/contact_manager?retryWrites=true&w=majority"
-);
+mongoose.connect("add you mongo db url");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
@@ -20,13 +18,6 @@ var blogSchema = new mongoose.Schema({
 });
 
 var Blog = mongoose.model("Blog", blogSchema);
-
-// Blog.create({
-//   title: "Test Blog",
-//   image:
-//     "https://images.pexels.com/photos/776117/pexels-photo-776117.jpeg?auto=compress&cs=tinysrgb&h=350",
-//   body: "This is a test blog",
-// });
 
 app.get("/", function (req, res) {
   res.redirect("/blogs");
